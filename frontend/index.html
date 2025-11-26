@@ -3,10 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Template</title>
+    <title>AgriFlow - Smart Inventory Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to Project Template</h1>
-    <p>Frontend placeholder</p>
+    <div id="app" class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>AgriFlow</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="#" id="nav-dashboard" class="nav-link active"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+                    <li><a href="#" id="nav-expiry" class="nav-link"><i class="fas fa-clock"></i><span>Expiry Tracker</span><span class="badge" id="expiry-badge">0</span></a></li>
+                    <li><a href="#" id="nav-inventory" class="nav-link"><i class="fas fa-boxes-stacked"></i><span>Raw Materials</span></a></li>
+                    <li><a href="#" id="nav-batches" class="nav-link"><i class="fas fa-truck"></i><span>Batch Tracking</span></a></li>
+                    <li><a href="#" id="nav-suppliers" class="nav-link"><i class="fas fa-handshake"></i><span>Suppliers</span></a></li>
+                    <li><a href="#" id="nav-weather" class="nav-link"><i class="fas fa-cloud-sun"></i><span>Weather Alerts</span></a></li>
+                    <li><a href="#" id="nav-orders" class="nav-link"><i class="fas fa-shopping-cart"></i><span>Smart Orders</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-login" id="loginBtn"><i class="fas fa-sign-in-alt"></i><span>Login</span></button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                    <h1 id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search..." id="globalSearch">
+                    </div>
+                    <button class="btn-icon" id="themeToggle"><i class="fas fa-moon"></i></button>
+                    <button class="btn-icon" id="notificationBtn"><i class="fas fa-bell"></i><span class="notification-dot"></span></button>
+                </div>
+            </header>
+
+            <div class="content-area" id="contentArea">
+                <!-- Dynamic content loads here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <i class="fas fa-leaf"></i>
+                <h2>Welcome Back</h2>
+                <p>Login to manage your inventory</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
 </body>
 </html>
